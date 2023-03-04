@@ -25,13 +25,13 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Movie> movies;
-//    MovieAdapter adapter;
-//    RecyclerView recyclerView;
+    MovieAdapter adapter;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        recyclerView = findViewById(R.id.recyclerView_movie1);
         GetMovies();
     }
 
@@ -60,8 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ViewData() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView_movie);
-        MovieAdapter adapter = new MovieAdapter(movies);
+        adapter = new MovieAdapter(movies);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
