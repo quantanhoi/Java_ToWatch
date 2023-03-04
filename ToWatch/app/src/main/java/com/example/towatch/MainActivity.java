@@ -1,12 +1,16 @@
 package com.example.towatch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.towatch.adapter.MovieAdapter;
 import com.example.towatch.model.Movie;
 import com.example.towatch.model.Result;
 import com.example.towatch.service.RetrofitInstance;
@@ -21,11 +25,13 @@ import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Movie> movies;
-    
+//    MovieAdapter adapter;
+//    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         GetMovies();
     }
 
@@ -41,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     for(Movie m : movies) {
                         System.out.println(m.getTitle());
                     }
+                    ViewData();
                 }
             }
 
@@ -50,5 +57,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         return movies;
+    }
+
+    private void ViewData() {
+        RecyclerView recyclerView = findViewById(R.id.recyclerView_movie);
+        MovieAdapter adapter = new MovieAdapter(movies);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
     }
 }
