@@ -5,6 +5,13 @@ plugins {
 android {
     namespace 'com.example.towatch'
     compileSdk 33
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding {
+        enabled = true
+    }
+
 
     defaultConfig {
         applicationId "com.example.towatch"
@@ -48,4 +55,8 @@ dependencies {
 
     //gson
     implementation 'com.google.code.gson:gson:2.10.1'
+
+    //data binding
+    implementation 'androidx.databinding:databinding-runtime:8.1.0-alpha07'
+//    implementation 'androidx.databinding:databinding-compiler:8.1.0-alpha07'
 }
