@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recyclerView_movie1);
-        GetMovies();
+//        recyclerView = findViewById(R.id.recyclerView_movie1);
+//        GetMovies();
     }
 
     private Object GetMovies() {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/PopularFilm"
+        android:title="Popular"
+        android:icon="@drawable/ic_baseline_local_movies_24"/>
+    <item
+        android:id="@+id/MyList"
+        android:title="My List"
+        android:icon="@drawable/ic_baseline_movie_filter_24"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_pin_24"/>
+
+</menu>
