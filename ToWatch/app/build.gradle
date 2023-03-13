@@ -61,4 +61,9 @@ dependencies {
     //data binding
     implementation 'androidx.databinding:databinding-runtime:8.1.0-alpha07'
 //    implementation 'androidx.databinding:databinding-compiler:8.1.0-alpha07'
+
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
 }
