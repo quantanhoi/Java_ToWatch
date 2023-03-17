@@ -1,5 +1,10 @@
 package com.example.towatch.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.List;
 import javax.annotation.Generated;
 import javax.validation.Valid;
@@ -7,7 +12,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("jsonschema2pojo")
-public class Result {
+public class Result implements Parcelable {
 
     @SerializedName("page")
     @Expose
@@ -22,6 +27,28 @@ public class Result {
     @SerializedName("total_results")
     @Expose
     private Integer totalResults;
+
+
+    //Parcel Creator
+    public final static Parcelable.Creator<Result> CREATOR = new Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel source) {
+            return new Result(source);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
+
+    public Result(Parcel in) {
+        this.page = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.totalResults = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.totalPages = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        in.readList(this.results, (com.example.towatch.model.Movie.class.getClassLoader()));
+
+    }
 
     public Integer getPage() {
         return page;
@@ -55,4 +82,17 @@ public class Result {
         this.totalResults = totalResults;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeValue(page);
+        dest.writeValue(totalResults);
+        dest.writeValue(totalPages);
+        dest.writeList(results);
+
+    }
 }
